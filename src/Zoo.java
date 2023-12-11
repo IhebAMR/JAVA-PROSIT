@@ -2,17 +2,16 @@ public class Zoo {
 Animal [] animals;
 String name;
 String city;
-int nbrCages;
+static final int MAX_CAGES = 25;
 
-public Zoo( String name, String city, int nbrCages) {
+public Zoo( String name, String city,int MAX_CAGES) {
     this.name = name;
     this.city = city;
-    this.nbrCages = nbrCages;
-    this.animals= new Animal[25];
+    this.animals= new Animal[MAX_CAGES];
 }
 @Override
 public String toString() {
-    return "Zoo: " + name + ", City: " + city + ", Number of Cages: " + nbrCages;
+    return "Zoo: " + name + ", City: " + city + ", Number of Cages: " + MAX_CAGES;
 }
 
 public boolean addAnimal(Animal animal) {
@@ -50,13 +49,48 @@ public void displayAnimals() {
             }
             return false;
         }
+
+        public boolean isZooFull() {
+            int count = 0;
+            for (int i = 0; i < animals.length; i++) {
+                if (animals[i] != null) {
+                    count++;
+                }
+            }
+            return count == MAX_CAGES;
+        }
+
+        public static Zoo comparerZoo(Zoo z1, Zoo z2) {
+            int countZ1 = 0;
+            int countZ2 = 0;
+    
+            for (Animal animal : z1.animals) {
+                if (animal != null) {
+                    countZ1++;
+                }
+            }
+    
+            for (Animal animal : z2.animals) {
+                if (animal != null) {
+                    countZ2++;
+                }
+            }
+    
+            if (countZ1 > countZ2) {
+                return z1;
+            } else {
+                return z2;
+            }
+        }
+    
+        
         
     
 
 
 public static void main(String[] args) {
    
-    Zoo myZoo=new Zoo("wild zoo", "tunis", 25);
+    Zoo myZoo=new Zoo("wild zoo", "tunis",MAX_CAGES);
    
     System.out.println(myZoo);
     System.out.println(myZoo.toString());
@@ -83,12 +117,15 @@ public static void main(String[] args) {
     myZoo.displayAnimals();
     myZoo.removeAnimal(giraffe);
       myZoo.displayAnimals();
+      boolean isFull = myZoo.isZooFull(); //tester la méthode isZooFull
+      System.out.println("Le zoo est-il plein ? " + isFull);
+  }
    
     
 
     
     }
-}
+
 
 
 
