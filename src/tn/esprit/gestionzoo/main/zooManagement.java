@@ -1,6 +1,7 @@
-
-
+package tn.esprit.gestionzoo.main;
+//prosit1*********//
 import java.util.Scanner;
+
 public class  zooManagement {
     static int nbrcages;
     static String zooname;
@@ -25,7 +26,10 @@ public class  zooManagement {
   
 
 }
+//zoojava
+    
 }
+
     
 
 
