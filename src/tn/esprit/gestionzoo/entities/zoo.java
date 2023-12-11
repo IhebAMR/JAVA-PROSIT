@@ -131,6 +131,9 @@ public static void main(String[] args) {
       myZoo.displayAnimals();
       boolean isFull = myZoo.isZooFull(); //tester la méthode isZooFull
       System.out.println("Le zoo est-il plein ? " + isFull);
+
+      Aquatic dolphin = new Dolphin();
+        Terrestrial penguin = new Penguin();
   }
 
 
